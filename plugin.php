@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: WooCommerce Sandbox Payment Gateway
+ * Plugin Name: Sandbox Payment Gateway for WooCommerce
  * Plugin URI: http://codemypain.com
  * Description: WooCommerce plugin to test the checkout with fake payments
- * Version: 3.2
+ * Version: 1.0.1
  * Author: Isaac Oyelowo
  * Author URI: http://isaacoyelowo.dev
  * Requires at least: 3.0
- * Tested up to: 4.1
+ * Tested up to: 5.8
  */
 
 /*

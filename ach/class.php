@@ -23,8 +23,8 @@ class WC_Gateway_WpsgAch extends WC_Payment_Gateway_eCheck
 {
 	public function __construct()
 	{
-		$this->id = 'nmi_echeck_payment';
-		$this->icon = plugin_dir_url( __FILE__ ) . 'card-echeck.png';
+		$this->id = 'sandbox_echeck_payment';
+		$this->icon = plugin_dir_url( dirname(__FILE__)  ) . 'assets/images/card-echeck.png';
 		$this->has_fields  = true;
         $this->method_title     = __( 'Sandbox ACH' , 'woocommerce' );
 
@@ -51,37 +51,37 @@ class WC_Gateway_WpsgAch extends WC_Payment_Gateway_eCheck
 
 	function init_form_fields() {
 
-		$blog_title= get_bloginfo('name');
 		$this->form_fields = array(
-				'enabled' => array(
-						'title' => __('Enable/Disable', 'woocommerce'),
-						'type' => 'checkbox',
-						'label' => __('Enable Network Merchants eCheck Payment.', 'woocommerce'),
-						'default' => 'no'),
-				'title' => array(
-						'title' => __('Title:', 'woocommerce'),
-						'type'=> 'text',
-						'description' => __('This controls the title which the user sees during checkout.', 'woocommerce'),
-						'default' => __('eCheck', 'woocommerce')),
-				'description' => array(
-						'title' => __('Description:', 'woocommerce'),
-						'type' => 'textarea',
-						'description' => __('This controls the description which the user sees during checkout.', 'woocommerce'),
-						'default' => __('Pay securely using eCheck', 'woocommerce')),
+            'enabled' => array(
+                'title' => __('Enable/Disable', 'woocommerce'),
+                'type' => 'checkbox',
+                'label' => __('Enable Network Merchants eCheck Payment.', 'woocommerce'),
+                'default' => 'no'),
+            'title' => array(
+                'title' => __('Title:', 'woocommerce'),
+                'type'=> 'text',
+                'description' => __('This controls the title which the user sees during checkout.', 'woocommerce'),
+                'default' => __('eCheck', 'woocommerce')),
+            'description' => array(
+                'title' => __('Description:', 'woocommerce'),
+                'type' => 'textarea',
+                'description' => __('This controls the description which the user sees during checkout.', 'woocommerce'),
+                'default' => __('Pay securely using eCheck', 'woocommerce')),
         );
 	}
 
 	public function admin_options() {
 
 		echo '<h3>'.__('ACH Sandbox Payment Gateway', 'woocommerce').'</h3>';
-		echo '<table class="form-table">';
+		echo esc_html( '<table class="form-table">' );
 		// Generate the HTML For the settings form.
 		$this -> generate_settings_html();
-		echo '</table>';
+		echo esc_html( '</table>' );
 
 	}
 
     public function form() {
+
         $fields = array();
 
         $default_fields = array(
@@ -106,7 +106,7 @@ class WC_Gateway_WpsgAch extends WC_Payment_Gateway_eCheck
             <?php do_action( 'woocommerce_echeck_form_start', $this->id ); ?>
             <?php
                 foreach ( $fields as $field ) {
-                    echo $field;
+                    echo esc_html( $field );
                 }
             ?>
             <?php do_action( 'woocommerce_echeck_form_end', $this->id ); ?>
@@ -116,5 +116,22 @@ class WC_Gateway_WpsgAch extends WC_Payment_Gateway_eCheck
 
     public function process_payment( $order_id ) {
 
+        $order = wc_get_order( $order_id );
+
+        if( !isset( $_POST[$this->id.'-checkname'] ) || empty( $_POST[$this->id.'-checkname'] ) || !isset( $_POST[$this->id.'-checkaba'] ) || empty( $_POST[$this->id.'-checkaba'] ) || !isset( $_POST[$this->id.'-checkaccount'] ) || empty( $_POST[$this->id.'-checkaccount'] ) ) {
+            $this->error_notice('All eCheck fields must be filled.');
+            return;
+        }
+
+        $order->update_status( 'on-hold', _x( 'eCheck payment complete. Awaiting verification', 'Sandbox ach payment', 'woocommerce' ) );
+
+            // Empty the cart
+        WC()->cart->empty_cart();
+
+        // Return to the Success Page
+        return array(
+            'result' => 'success',
+            'redirect' => $this->get_return_url( $order )
+        );
     }
 } 
