@@ -1,15 +1,22 @@
-=== Sandbox Payment Gateway for WooCommerce ===
+## Sandbox Payment Gateway for WooCommerce
+
 Contributors: webmonk
+
 Donate link: https://paypal.me/scopes90?locale.x=en_GB
+
 Tags: woocommerce,payment gateways, sandbox, demo
+
 Tested up to: 5.8
+
 Stable tag: 1.0.1
+
 License: GPLv2 or later
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 WooCommerce plugin to test the checkout with fake payments.
 
-== Description ==
+## Description
 
 This plugin was developed out of necessity! On several occasions, I find myself wanting to test the checkout of a WooCommerce installation with either a credit card or eCheck.
 
@@ -30,29 +37,20 @@ The development of the Plugin happens over at [github](https://github.com/webmon
 
 If you want to contribute to the Plugin, [fork the project at github](https://github.com/webmonk/woocommerce-sandbox-payment) and send me a pull request.
 
-== Installation ==
+## Installation
 
 * Upload `woocommerce-sandbox-payment` unzipped file to the `/wp-content/plugins/` directory
 * Activate the plugin through the 'Plugins' menu in WordPress
 * Go to WooCommerce > Settings > Payments to enable Sandbox credit card and Sandbox eCheck.
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions
 
-= Can I test with real credit cards =
+### Can I test with real credit cards
 
 Yes, you can. Although you won't be charged as this is only a test payment.
 
 
-== Screenshots ==
+## Changelog
 
-1. Screenshot of the admin payments page showing all available payment gateways
-2. Screenshot of the settings page for sandbox credit card
-3. Screenshot of the settings page for sandbox eCheck
-4. Screenshot of credit card payment form on checkout page
-5. Screenshot of eCheck payment form on checkout page
-6. Screenshot of admin order page showing status of transaction and order notes
-
-== Changelog ==
-
-= 1.0.1 =
+### 1.0.1
 * Initial Release
