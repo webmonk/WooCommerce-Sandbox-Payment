@@ -3,7 +3,7 @@ Contributors: webmonk
 Donate link: https://paypal.me/scopes90?locale.x=en_GB
 Tags: woocommerce,payment gateways, sandbox, demo
 Tested up to: 5.8
-Stable tag: 1.0.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,9 +46,9 @@ Yes, you can. Although you won't be charged as this is only a test payment.
 1. Screenshot of the admin payments page showing all available payment gateways
 2. Screenshot of the settings page for sandbox credit card
 3. Screenshot of the settings page for sandbox eCheck
-4. Screenshot of credit card payment form on checkout page
-5. Screenshot of eCheck payment form on checkout page
-6. Screenshot of admin order page showing status of transaction and order notes
+4. Screenshot of credit card payment form on the checkout page
+5. Screenshot of eCheck payment form on the checkout page
+6. Screenshot of admin order page showing status of the transaction and order notes
 
 == Changelog ==
 
