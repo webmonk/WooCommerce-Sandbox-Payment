@@ -2,7 +2,8 @@
 Contributors: webmonk
 Donate link: https://paypal.me/scopes90?locale.x=en_GB
 Tags: woocommerce,payment gateways, sandbox, demo
-Tested up to: 5.8
+Requires at least: 4.7
+Tested up to: 6.4
 Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
