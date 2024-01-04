@@ -1,18 +1,17 @@
 name: Deploy to WordPress.org
 on:
   push:
-    branches:
-      - main
-
+    tags:
+    - "*"
 jobs:
-  deploy:
+  tag:
+    name: New tag
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-
-      - name: WordPress Plugin Deploy
-        uses: nk-o/action-wordpress-plugin-deploy@master
-        env:
-          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SLUG: sandbox-payment-gateway
+    - uses: actions/checkout@master
+    - name: WordPress Plugin Deploy
+      uses: 10up/action-wordpress-plugin-deploy@master
+      env:
+        SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+        SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+        SLUG: sandbox-payment-gateway
