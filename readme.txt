@@ -11,9 +11,7 @@ WooCommerce plugin to test the checkout with fake payments.
 
 == Description ==
 
-This plugin was developed out of necessity! On several occasions, I find myself wanting to test the checkout of a WooCommerce installation with either a credit card or eCheck.
-
-WooCommerce Sandbox Payment Gateway eliminates the need to create coupons or test actual payment gateways with a real payments.
+WooCommerce Sandbox Payment Gateway eliminates the need to create coupons to reduce the order total or test actual payment gateways with real payment.
 
 ### Stimulating a successful credit card transaction
 - Use any valid credit card details.
